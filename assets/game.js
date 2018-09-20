@@ -1,6 +1,5 @@
-
 var crystalScore = {
-  randomnumber:0,
+  randomnumber: 0,
   red: 0,
   green: 0,
   white: 0,
@@ -10,92 +9,78 @@ var crystalScore = {
   score: 0,
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-function score() {
-  if(crystalScore.score === crystalScore.randomnumber){
-    crystalcount.wins++;
-    $('#win').text(crystalcount.wins);
-    newgame();
+  function score() {
+    if (crystalScore.score === crystalScore.randomnumber) {
+      crystalScore.wins++;
+      $('#win').text(crystalScore.wins);
+      newgame();
+
+    } else if (crystalScore.score > crystalScore.randomnumber) {
+      crystalScore.losses++;
+      $('#losses').text(crystalScore.losses);
+      newgame();
+    }
 
   }
-  else if(crystalScore.score > crystalScore.randomnumber)
-  {
-    crystalcount.losses++;
-    $('#losses').text(crystalcount.losses);
-    newgame();
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-}
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  function newgame() {
+    crystalScore.randomnumber = getRandomInt(1, 100);
+    $("#score").text(crystalScore.randomnumber);
 
+    crystalScore.red = 0;
+    crystalScore.green = 0;
+    crystalScore.blue = 0;
+    crystalScore.white = 0;
+    crystalScore.count = 0;
 
-function newgame(){
-  crystalScore.randomnumber= getRandomInt(1, 100);
-  $("#score").text(crystalScore.randomnumber);
-
-  crystalScore.red = 0;
-  crystalScore.green = 0;
-  crystalScore.blue = 0;
-  crystalScore.white = 0;
-  crystalScore.count = 0;
-
-}
-//to generete randomnumberbtwn 18-120
+  }
+  
   crystalScore.randomnumber = getRandomInt(1, 100);
   $("#score").text(crystalScore.randomnumber);
 
-  $("#red").on("click", function() {          
-    if(crystalcount.redcrystal==0){
-   crystalcount.redcrystal=random(12,1);
-     $("#redl").text($(this).text());
+  $("#red").on("click", function () {
+    if (crystalScore.red === 0) {
+      crystalScore.red = getRandomInt(1, 20);
+      $("#red").text($(this).text());
     }
-    console.log(crystalcount.redcrystal);
-    crystalcount.count=crystalcount.count+crystalcount.redcrystal;
-    $("#yourScore").text(crystalcount.count);
-    console.log(crystalcount.count);
+    crystalScore.score = crystalScore.score + crystalScore.red;
+    $("#yourScore").text(crystalScore.score);
     score();
-    });
-    $("#white").on("click", function() {
-     if(crystalcount.whitecrystal==0){
-    crystalcount.whitecrystal=random(12,1);
-    $("#whitecrystal").text($(this).text());
-     }
-      console.log(crystalcount.whitecrystal);
-      // console.log(crystalcount.count);
-      crystalcount.count=crystalcount.count+crystalcount.whitecrystal;
-      $("#yourScore").text(crystalcount.count);
-      console.log(crystalcount.count);
-      score();
-    });
-$("#blue").on("click", function() {
+  });
+  $("#white").on("click", function () {
+    if (crystalScore.white === 0) {
+      crystalScore.white = getRandomInt(1, 20);
+      $("#white").text($(this).text());
+    }
+    crystalScore.score = crystalScore.score + crystalScore.white;
+    $("#yourScore").text(crystalScore.score);
+    score();
+  });
+  $("#blue").on("click", function () {
+    if (crystalScore.blue === 0) {
+      crystalScore.blue = getRandomInt(1, 20);
+      $("#blue").text($(this).text());
+    }
+    crystalScore.score = crystalScore.score + crystalScore.blue;
+    $("#yourScore").text(crystalScore.score);
+    score();
+  });
+  $("#green").on("click", function () {
+    if (crystalScore.green == 0) {
+      crystalScore.green = getRandomInt(1, 20);
+      $("#green").text($(this).text());
+    }
+    crystalScore.score = crystalScore.score + crystalScore.green;
+    $("#yourScore").text(crystalScore.score);
+    score();
+  });
 
- if(crystalcount.bluecrystal==0) {
-  crystalcount.bluecrystal=random(12,1);
-  $("#bluecrystal").text($(this).text());
-}
-  console.log( crystalcount.bluecrystal);
-  crystalcount.count=crystalcount.count+crystalcount.bluecrystal;
-  $("#yourScore").text(crystalcount.count);
-  console.log(crystalcount.count);
-  score();
-});
-$("#green").on("click", function() {
 
- if(crystalcount.greencrystal==0) {
-
- crystalcount.greencrystal=random(12,1);
-  $("#greencrystal").text($(this).text());
-}
-  console.log(crystalcount.greencrystal);
-  crystalcount.count=crystalcount.count+crystalcount.greencrystal;
-  $("#yourScore").text(crystalcount.count);
-  console.log(crystalcount.count);
-  score();
-});
-
-  
 });
