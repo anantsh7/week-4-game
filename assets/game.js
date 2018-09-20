@@ -28,8 +28,13 @@ function score() {
 
 }
 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 function newgame(){
-  crystalScore.randomnumber= Math.floor(Math.random()* 100)+ 1;
+  crystalScore.randomnumber= getRandomInt(1, 100);
   $("#score").text(crystalScore.randomnumber);
 
   crystalScore.red = 0;
@@ -40,8 +45,8 @@ function newgame(){
 
 }
 //to generete randomnumberbtwn 18-120
-  crystalcount.generatenumber = random();
-  $(".value").text(crystalcount.generatenumber);
+  crystalScore.randomnumber = getRandomInt(1, 100);
+  $("#score").text(crystalScore.randomnumber);
 
   $("#red").on("click", function() {          
     if(crystalcount.redcrystal==0){
