@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Game</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Slackey" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+
+</head>
+
+<body>
+  <div>
+    <h1> Crystal Collector Game </h1>
+    <div class="container">
+      <div class="panel-body col-md-3">
+        <h2>Wins: <span id="win"></span></h2>
+      </div>
+      <div class="panel-body col-md-3 ">
+        <h2>Losses: <span id="losses"></span> </h2>
+      </div>>
+      <div class="panel-body col-md-3">
+        <h2>Number To Get : <span id="score"></span></<h2>
+      </div>
+    </div>
+  </div>
+  <!-- crystal buttons-->
+  <div class="container">
+    <div class="buttons col-md-8" id="crystal">
+      <button>
+        <img src="assets/images/red.jpg" id="red" />
+      </button>
+      <button>
+        <img src="assets/images/green.png" id="green" />
+      </button>
+      <button>
+        <img src="assets/images/white.jpg" id="white" />
+      </button>
+      <button>
+        <img src="assets/images/blue.png" id="blue" />
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="panel-body col-md-11" id="total">
+        <h3>Your Total Score:<span id="yourScore">0</span></h3>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="assets/game.js"></script>
+</body>
+
+</html>
